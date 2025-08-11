@@ -328,39 +328,33 @@ p {
 
 .zooantwerpen10082025 > div,
 .centerparcs2025 > div {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  /* vaste hoogte voor elk fotovakje, pas aan naar wens */
+  min-height: 350px;
+  height: 100%;
 }
 
 .zooantwerpen10082025 > div > img,
 .centerparcs2025 > div > img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  flex: 1 1 auto;
+  object-fit: cover; /* afbeelding vult de ruimte, snijdt indien nodig */
   border-radius: 8px 8px 0 0;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  display: block;
 }
-
 .zooantwerpen10082025 > div > p,
 .centerparcs2025 > div > p {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
+  position: static; /* niet absoluut meer! */
   padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   color: black;
   font-family: 'Lavishly Yours', serif;
-  font-size: 1.75rem;
-  font-weight: 400;
+  font-size: 1.25rem;
+  border-radius: 0 0 8px 8px;
   text-align: center;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  box-sizing: border-box;
+  margin: 0;
 }
 
 .zooantwerpen10082025 > div > img:hover,
