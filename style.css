@@ -333,12 +333,15 @@ p {
   /* vaste hoogte voor elk fotovakje, pas aan naar wens */
   min-height: 350px;
   height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .zooantwerpen10082025 > div > img,
 .centerparcs2025 > div > img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height:300px;
   flex: 1 1 auto;
   object-fit: cover; /* afbeelding vult de ruimte, snijdt indien nodig */
   border-radius: 8px 8px 0 0;
