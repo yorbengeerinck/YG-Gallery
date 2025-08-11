@@ -402,7 +402,7 @@ h3:hover {
 }
 
 #lightbox {
-  display: none;
+  display: none;  /* standaard verborgen */
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -411,11 +411,12 @@ h3:hover {
   height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.9);
-  display: flex;
+
+  /* flex eigenschappen voor centreren als het zichtbaar is */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5vh 0; /* ruimte boven en onder */
+  padding: 5vh 0;
 }
 
 @keyframes fadeIn {
@@ -428,7 +429,7 @@ h3:hover {
   max-height: 70vh;
   border-radius: 1rem;
   object-fit: contain;
-  margin-bottom: 1rem;  /* kleine ruimte onder de afbeelding */
+  margin-bottom: 1rem;
 }
 
 #caption {
