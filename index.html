@@ -11,6 +11,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet" />
+  <style>
+    body.prevented {
+      visibility: hidden;
+    }
+    #overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      z-index: 9999;
+      visibility: hidden;
+    }
+    #overlay.active {
+      visibility: visible;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -173,28 +195,32 @@
         </div>
       </div>
     </section>
-    <section id="contact" class="section-space">
-      <h2>Contact</h2>
-      <p>Neem contact op via e-mail door op deze link te klikken: <a href="mailto:geerinckyorben@gmail.com">geerinckyorben@gmail.com</a></p>
-    </section>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>© 2025 Yorben Geerinck.</p>
-        <p>Student Cyber Security & Cloud (AP Hogeschool Antwerpen)</p>
-        <p>Alle rechten voorbehouden.</p>
-      </div>
-    </footer>
   </main>
 
-  <div id="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
-    <img id="lightbox-img" src="" alt="Grote foto" />
-    <div id="caption"></div>
-    <span class="next" onclick="changeSlide(1)">&#10095;</span>
+  <footer>
+    <p>Copyright 2023 Yorben Geerinck</p>
+  </footer>
+
+  <div id="overlay" role="alert" aria-live="assertive" aria-atomic="true">
+    Screenshots zijn niet toegestaan op deze website.
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    document.addEventListener('keydown', function(event) {
+      // Detect Print Screen key (some keyboards: 'PrintScreen', others might use keyCode 44)
+      if (event.key === 'PrintScreen' || event.keyCode === 44) {
+        // Verberg de body content
+        document.body.classList.add('prevented');
+        // Toon overlay
+        const overlay = document.getElementById('overlay');
+        overlay.classList.add('active');
+        // Na 3 seconden alles terug herstellen
+        setTimeout(() => {
+          overlay.classList.remove('active');
+          document.body.classList.remove('prevented');
+        }, 3000);
+      }
+    });
+  </script>
 </body>
 </html>
