@@ -17,7 +17,7 @@ body {
 
 main {
   max-width: 100%;
-  width: 100%;
+  width: 90%;
   text-align: center;
   background: rgba(0, 0, 0, 0.4);
   padding: 20px 10px;
@@ -51,12 +51,33 @@ body.dark p a:hover {
   padding: 0.1rem;
 }
 body.dark .close {
-  position: absolute; top: 20px; right: 35px;
-  font-size: 30px; font-weight: bold;
-  cursor: pointer; color: white;
-  border-radius: 1rem; padding: 0.5rem;
+  position: fixed;
+  top: 20px;       /* bijvoorbeeld rechtsboven */
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #388E3C;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  z-index: 1001;
 }
-body.dark .close:hover { color:red; }
+
+body.dark .close:hover {
+  background-color: #2E7D32;
+  color: red;
+  transform: scale(1.1);
+}
+
 body.dark #caption { color: #fff; }
 
 body.light { 
@@ -87,13 +108,34 @@ body.light p a:hover {
   padding: 0.1rem;
 }
 body.light .close {
-  position: absolute; top: 20px; right: 35px;
-  font-size: 30px; font-weight: bold;
-  cursor: pointer; color: black;
-  border-radius: 1rem; padding: 0.5rem;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  border-radius: 50%;
+  background-color: white;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  z-index: 1001;
 }
-body.light .close:hover { color:red; }
-body.light #caption { color: #000; }
+
+body.light .close:hover {
+  background-color: #4CAF50;
+  color: red;
+  transform: scale(1.1);
+}
+
+body.light #caption { color: white; }
 
 /* ===== NAV ===== */
 nav {
@@ -119,20 +161,36 @@ nav a:hover { background-color: rgba(255, 255, 255, 0.2); }
 
 /* ===== HOME ===== */
 .profile-pic {
-  width: 150px; height: 150px;
+  width: 400px; height: 400px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
   margin-bottom: 15px;
+  margin-top:2rem
 }
-h1 { font-family: 'Lavishly Yours', cursive; font-size: 1.8rem; }
+
+.profile-pic:hover{
+  box-shadow: 0 0 20px white;
+  transform: scale(1.05);
+}
+
+h1 { font-family: 'Lavishly Yours', cursive; font-size: 4rem; }
 ul {
   border: 2px solid white;
   border-radius: 1rem;
   width: 90%;
-  margin: 1rem auto;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 0.5rem;
 }
+
+ul:hover{
+  box-shadow: 0 0 20px white;
+  transform: scale(1.05);
+}
+
 #home p, h5 { font-family: 'Playfair Display', serif; font-size: 1rem; }
 #home p:last-child {
   background-color: green;
@@ -140,35 +198,63 @@ ul {
   border-radius: 1rem;
   padding: 1rem;
   width:fit-content;
-  margin: 0 auto;
+  max-width: 90%;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home p:last-child:hover{
+  box-shadow: 0 0 20px yellowgreen;
+  transform: scale(1.05);
 }
 
 /* ===== TITELS ===== */
 h2 {
   font-family: 'Meow Script', cursive;
-  font-size: 2.2rem;
+  font-size: 3.5rem;
   color: red;
-  margin: 0 auto;
+  margin: 1.75rem auto;
   border: 2px solid red;
   border-radius: 1rem;
   max-width: 90%;
+  padding:1rem;
 }
+
+h2:hover{
+  box-shadow: 0 0 20px red;
+  transform: scale(1.05);
+}
+
 h3 {
   font-family: 'Langar', serif;
   font-size: 1.1rem;
   color: cyan;
   border: 2px dashed aqua;
   margin: auto;
-  width: 90%;
+  width: 80%;
+}
+
+h3:hover{
+  box-shadow: 0 0 20px blue;
+  transform: scale(1.05);
 }
 
 /* ===== GALLERY ===== */
-.gallery { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.gallery { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  max-width:95%;
+  margin-left:auto;
+  margin-right: auto;
+}
 .zooantwerpen10082025,
 .centerparcs2025 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.8rem;
+  margin-bottom: 2rem;
 }
 .zooantwerpen10082025 > div,
 .centerparcs2025 > div {
@@ -176,7 +262,10 @@ h3 {
   flex-direction: column;
   min-height: auto;
   border-radius: 8px;
+  overflow: hidden;
+  border: 3px dashed red;
 }
+
 .zooantwerpen10082025 > div > img,
 .centerparcs2025 > div > img {
   width: 100%;
@@ -185,15 +274,27 @@ h3 {
   object-fit: cover;
   border-radius: 8px 8px 0 0;
 }
+
+.zooantwerpen10082025 > div > img:hover,
+.centerparcs2025 > div > img:hover{
+  transform: scale(1.05);
+}
+
 .zooantwerpen10082025 > div > p,
 .centerparcs2025 > div > p {
-  padding: 0.4rem;
+  padding: 0.5rem;
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
   font-family: 'Lavishly Yours', serif;
-  font-size: 1rem;
+  font-size: 1.75rem;
   border-radius: 0 0 8px 8px;
   text-align: center;
+}
+
+.section-space>p{
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
 /* ===== FOOTER ===== */
@@ -201,9 +302,9 @@ h3 {
   background-color: #222;
   color: #eee;
   text-align: center;
-  padding: 10px 15px;
-  font-size: 0.8rem;
-  font-family: 'Italianno', serif;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
 }
 
 /* ===== LIGHTBOX ===== */
@@ -217,9 +318,78 @@ h3 {
   flex-direction: column; justify-content: center; align-items: center;
   padding: 5vh 0;
 }
-#lightbox-img { max-width: 90vw; max-height: 70vh; border-radius: 1rem; }
-#caption { max-width: 90vw; font-size: 1.4rem; }
 
+#lightbox-img { 
+  max-width: 80vw; 
+  max-height: 70vh; 
+  border-radius: 1rem; 
+}
+
+#caption { 
+  max-width: 90vw; 
+  font-size: 2rem;
+  font-family: 'Lavishly Yours', serif;
+  padding-top: 1rem;
+}
+
+.prev, .next {
+  position: fixed;
+  top: 45%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  z-index: 1000; /* boven andere content */
+}
+
+/* Links vast */
+.prev {
+  left: 5px;
+}
+
+/* Rechts vast */
+.next {
+  right: 5px;
+}
+
+/* Thema’s via body.light en body.dark */
+
+/* Licht thema */
+body.light .prev,
+body.light .next {
+  background-color: white;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+}
+
+body.light .prev:hover,
+body.light .next:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Donker thema */
+body.dark .prev,
+body.dark .next {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #388E3C;
+}
+
+body.dark .prev:hover,
+body.dark .next:hover {
+  background-color: #2E7D32;
+  color: #C8E6C9;
+  transform: scale(1.1);
+}
 
 
 
@@ -228,24 +398,29 @@ h3 {
   .zooantwerpen10082025, .centerparcs2025 {
     grid-template-columns: repeat(2, 1fr);
   }
-  .profile-pic { width: 200px; height: 200px; }
-  h1 { font-size: 2.5rem; }
+  .profile-pic { width: 400px; height: 400px; margin-bottom:0;
+ }
+  h1 { font-size: 4rem; margin-top: 1rem; margin-bottom: 1rem;}
   h2 { font-size: 3rem; }
   h3 { font-size: 1.3rem; }
 }
 
 @media (min-width: 800px) {
   ul { width: 50%; }
-  .profile-pic { width: 250px; height: 250px; }
+  .profile-pic { width: 400px; height: 400px; }
   .zooantwerpen10082025, .centerparcs2025 {
     grid-template-columns: repeat(3, 1fr);
   }
   h3 { grid-column: 1/4; }
+
+  #home p:last-child{
+    padding:1.75rem;
+  }
 }
 
 @media (min-width: 1200px) {
   .zooantwerpen10082025, .centerparcs2025 {
     grid-template-columns: repeat(4, 1fr);
   }
-  .profile-pic { width: 300px; height: 300px; }
+  .profile-pic { width: 400px; height: 400px; }
 }
