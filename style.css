@@ -263,7 +263,7 @@ h3:hover{
   align-items: stretch;
   border-radius: 8px;
   margin: 0.5rem 0;
-  /*overflow: hidden;*/
+  overflow: hidden;
   max-width: 100%;
   box-sizing: border-box;
   height:auto
