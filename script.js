@@ -3,7 +3,6 @@ const toggleBtn = document.getElementById('toggle-theme');
 const body = document.body;
 const themeIcon = document.querySelector('#theme-icon');
 const themeText = document.querySelector('#theme-text');
-const lightbox = document.getElementById('lightbox');
 
 function updateToggle() {
   if (body.classList.contains('dark')) {
@@ -41,6 +40,7 @@ toggleBtn.addEventListener('click', () => {
 const galleries = document.querySelectorAll('.gallery > div');
 const lightboxImg = document.getElementById('lightbox-img');
 const caption = document.getElementById('caption');
+const lightbox = document.getElementById('lightbox');
 
 window.addEventListener('load', () => {
   lightbox.style.display = 'none';
@@ -109,42 +109,3 @@ function changeSlide(direction) {
   const p = parentDiv.querySelector('p');
   caption.textContent = p ? p.textContent : '';
 }
-
-// -- Toevoeging voor "verbergen" van console en devtools moeilijker maken --
-
-(function() {
-  const noop = () => {};
-  console.log = noop;
-  console.warn = noop;
-  console.error = noop;
-  console.info = noop;
-})();
-
-window.addEventListener('contextmenu', e => e.preventDefault());
-
-window.addEventListener('keydown', function(e) {
-  if (e.key === 'F12') {
-    e.preventDefault();
-  }
-  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
-    e.preventDefault();
-  }
-  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
-    e.preventDefault();
-  }
-  if (e.ctrlKey && e.key.toLowerCase() === 'u') {
-    e.preventDefault();
-  }
-});
-
-document.addEventListener('keyup', function(e) {
-  if (e.key === 'PrintScreen') {
-    // Verberg de pagina of toon een melding
-    document.body.style.visibility = 'hidden';
-    
-    // Herstel na 1 seconde weer zichtbaar (kan je aanpassen)
-    setTimeout(() => {
-      document.body.style.visibility = 'visible';
-    }, 1000);
-  }
-});

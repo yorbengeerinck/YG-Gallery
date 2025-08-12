@@ -228,6 +228,7 @@ h2:hover{
 }
 
 h3 {
+  grid-column:1/4;
   font-family: 'Langar', serif;
   font-size: 1.1rem;
   color: cyan;
@@ -245,50 +246,57 @@ h3:hover{
 .gallery { 
   display: grid; 
   grid-template-columns: 1fr; 
-  max-width:95%;
-  margin-left:auto;
-  margin-right: auto;
+  gap: 1rem;
 }
+
 .zooantwerpen10082025,
 .centerparcs2025 {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.8rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
 }
+
 .zooantwerpen10082025 > div,
 .centerparcs2025 > div {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  min-height: auto;
+  align-items: stretch;
   border-radius: 8px;
-  overflow: hidden;
-  border: 3px dashed red;
+  margin: 0.5rem 0;
+  /*overflow: hidden;*/
+  max-width: 100%;
+  box-sizing: border-box;
+  height:auto
 }
 
 .zooantwerpen10082025 > div > img,
 .centerparcs2025 > div > img {
-  width: 100%;
-  height: auto;
-  max-height: 220px;
-  object-fit: cover;
   border-radius: 8px 8px 0 0;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
 }
 
 .zooantwerpen10082025 > div > img:hover,
-.centerparcs2025 > div > img:hover{
+.centerparcs2025 > div > img:hover {
   transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .zooantwerpen10082025 > div > p,
 .centerparcs2025 > div > p {
   padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.8);
   color: black;
   font-family: 'Lavishly Yours', serif;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   border-radius: 0 0 8px 8px;
   text-align: center;
+  margin: 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .section-space>p{
@@ -395,32 +403,38 @@ body.dark .next:hover {
 
 @media (min-width: 600px) {
   body { font-size: 16px; }
-  .zooantwerpen10082025, .centerparcs2025 {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .profile-pic { width: 400px; height: 400px; margin-bottom:0;
  }
   h1 { font-size: 4rem; margin-top: 1rem; margin-bottom: 1rem;}
   h2 { font-size: 3rem; }
   h3 { font-size: 1.3rem; }
+
+.zooantwerpen10082025, .centerparcs2025{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
 }
 
 @media (min-width: 800px) {
   ul { width: 50%; }
   .profile-pic { width: 400px; height: 400px; }
-  .zooantwerpen10082025, .centerparcs2025 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  h3 { grid-column: 1/4; }
 
   #home p:last-child{
     padding:1.75rem;
   }
+  .zooantwerpen10082025, .centerparcs2025{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
 }
 
 @media (min-width: 1200px) {
-  .zooantwerpen10082025, .centerparcs2025 {
-    grid-template-columns: repeat(4, 1fr);
-  }
   .profile-pic { width: 400px; height: 400px; }
+  .zooantwerpen10082025, .centerparcs2025{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+  h3{
+    grid-column: 1/5;
+  }
 }
