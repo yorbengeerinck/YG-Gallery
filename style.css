@@ -192,7 +192,7 @@ ul:hover{
 }
 
 #home p, h5 { font-family: 'Playfair Display', serif; font-size: 1rem; }
-#home p:last-child {
+#home p {
   background-color: green;
   border: 2px solid yellowgreen;
   border-radius: 1rem;
@@ -205,7 +205,7 @@ ul:hover{
   margin-right: auto;
 }
 
-#home p:last-child:hover{
+#home p:hover{
   box-shadow: 0 0 20px yellowgreen;
   transform: scale(1.05);
 }
