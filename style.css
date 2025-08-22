@@ -33,6 +33,7 @@ body.dark nav a { color: white; }
 body.dark nav a:hover { background-color: rgba(255, 255, 255, 0.2); }
 body.dark #theme-text { color: #eee; }
 
+body.dark .durbuydinant2025 > h3,
 body.dark .sluisblankenberge2025 > h3,
 body.dark .zooantwerpen10082025 > h3,
 body.dark .centerparcs2025 > h3 {
@@ -92,6 +93,7 @@ body.light nav a { color: black; }
 body.light nav a:hover { background-color: rgba(0,0,0,0.1); }
 body.light #theme-text { color: black; }
 
+body.light .durbuydinant2025>h3,
 body.light .sluisblankenberge2025 >h3,
 body.light .zooantwerpen10082025 > h3,
 body.light .centerparcs2025 > h3 {
@@ -139,7 +141,7 @@ body.light .close:hover {
   transform: scale(1.1);
 }
 
-body.light #caption { color: white; }
+body.light #caption { color: black; }
 
 /* ===== NAV ===== */
 nav {
@@ -261,6 +263,7 @@ h6{
   gap: 1rem;
 }
 
+.durbuydinant2025,
 .sluisblankenberge2025,
 .zooantwerpen10082025,
 .centerparcs2025 {
@@ -269,6 +272,7 @@ h6{
   gap: 1rem;
 }
 
+.durbuydinant2025 > div,
 .sluisblankenberge2025 > div,
 .zooantwerpen10082025 > div,
 .centerparcs2025 > div {
@@ -284,6 +288,7 @@ h6{
   background: rgba(255,255,255,0.03);
 }
 
+.durbuydinant2025 > div > img,
 .sluisblankenberge2025 > div > img,
 .zooantwerpen10082025 > div > img,
 .centerparcs2025 > div > img {
@@ -296,6 +301,7 @@ h6{
   transition: filter 0.25s;
 }
 
+.durbuydinant2025 > div > p,
 .sluisblankenberge2025 > div > p,
 .zooantwerpen10082025 > div > p,
 .centerparcs2025 > div > p {
@@ -318,6 +324,8 @@ h6{
     transform 0.4s cubic-bezier(.4,0,.2,1);
 }
 
+.durbuydinant2025 > div:hover > p,
+.durbuydinant2025 > div:focus-within > p,
 .sluisblankenberge2025 > div:hover > p,
 .sluisblankenberge2025 > div:focus-within > p,
 .zooantwerpen10082025 > div:hover > p,
@@ -451,9 +459,9 @@ body.dark .next:hover {
   h2 { font-size: 3rem; }
   h3 { font-size: 1.3rem; }
 
- .sluisblankenberge2025, .zooantwerpen10082025, .centerparcs2025{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+  .durbuydinant2025, .sluisblankenberge2025, .zooantwerpen10082025, .centerparcs2025{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
   }
 }
 
@@ -464,7 +472,7 @@ body.dark .next:hover {
   #home p:last-child{
     padding:1.75rem;
   }
-  .sluisblankenberge2025, .zooantwerpen10082025, .centerparcs2025{
+  .durbuydinant2025, .sluisblankenberge2025, .zooantwerpen10082025, .centerparcs2025{
     display: grid;
     grid-template-columns: repeat(3,1fr);
   }
@@ -472,7 +480,7 @@ body.dark .next:hover {
 
 @media (min-width: 1200px) {
   .profile-pic { width: 400px; height: 400px; }
-  .sluisblankenberge2025, .zooantwerpen10082025, .centerparcs2025{
+  .durbuydinant2025, .sluisblankenberge2025, .zooantwerpen10082025, .centerparcs2025{
     display: grid;
     grid-template-columns: repeat(4,1fr);
   }
